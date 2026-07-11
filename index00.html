@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Chilli Vanilli</title>
+
+    <style>
+        body {
+            background: radial-gradient(circle, black, #0a0a0a);
+            margin: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        h1 {
+            color: white;
+            font-size: 80px;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 40px;
+            cursor: pointer;
+
+            animation: slideDown 1.0s ease-out;
+            
+            /* Verhindert, dass der Text beim Klicken blau markiert wird */
+            user-select: none; 
+        }
+
+        button {
+            padding: 15px 70px;
+            font-size: 24px;
+            font-weight: 600;
+
+            border: none;
+            border-radius: 15px;
+
+            background-color: white;
+            color: black;
+
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            
+            /* Der Button nimmt Platz ein, ist aber unsichtbar und nicht klickbar */
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        /* Klasse wird per JS hinzugefügt und startet die Animation */
+        button.show {
+            visibility: visible;
+            animation: slideUp 1.0s ease-out forwards;
+        }
+
+        button:hover {
+            background-color: #dddddd;
+            transform: scale(1.10);
+        }
+
+        /* Start Animationen */
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 onclick="showButton()">Chilli Vanilli</h1>
+
+        <button id="joinButton" onclick="window.location.href='https://discord.gg/3H3jmYCpwe'">
+            Join
+        </button>
+
+    </div>
+
+    <script>
+        function showButton() {
+            const button = document.getElementById('joinButton');
+            button.classList.add('show');
+        }
+    </script>
+
+</body>
+</html>
